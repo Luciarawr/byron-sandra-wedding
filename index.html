@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byron & Sandra - Invitación de Boda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- PORTADA -->
+    <section class="hero" id="hero">
+        <div class="hero__image-container">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop" alt="Byron y Sandra" class="hero__image">
+            <div class="hero__overlay"></div>
+        </div>
+        
+        <div class="hero__content">
+            <div class="hero__names">
+                <h1 class="hero__name-groom">Byron Enrique<br>Galdámez Cárcamo</h1>
+                <div class="hero__divider">
+                    <span class="hero__ampersand">&</span>
+                </div>
+                <h2 class="hero__name-bride">Sandra Eunice<br>Gaitán Chacón</h2>
+            </div>
+            
+            <div class="hero__date">19 / 12 / 26</div>
+            
+            <div class="hero__music">
+                <button class="music-btn" id="musicBtn" aria-label="Reproducir música">
+                    <svg class="music-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                    </svg>
+                </button>
+                <audio id="audioPlayer" preload="none">
+                    <source src="https://www.youtube.com/watch?v=JiSIJ2amnQc&t=4s" type="audio/mpeg">
+                </audio>
+                <p class="hero__music-hint">Haz click aquí</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRODUCCIÓN - PADRES -->
+    <section class="introduction" id="introduction">
+        <div class="introduction__content">
+            <p class="introduction__text">
+                CON PROFUNDO AMOR Y GRATITUD A NUESTROS<br>
+                PADRES QUE NOS HAN ENSEÑADO EL SIGNIFICADO<br>
+                DEL AMOR, LA FAMILIA Y LA UNIÓN
+            </p>
+            
+            <div class="introduction__parents">
+                <div class="introduction__parents-group">
+                    <p class="introduction__parent-name">Marcos Galdámez JA.</p>
+                    <p class="introduction__parent-name">Eva Cárcamo</p>
+                </div>
+                <div class="introduction__parents-group">
+                    <p class="introduction__parent-name">Leopoldo Gaitán</p>
+                    <p class="introduction__parent-name">Alejandra de Gaitán</p>
+                </div>
+            </div>
+        </div>
+        
+        <svg class="introduction__decoration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 150 Q 60 140 70 150 Q 75 155 80 150" stroke="#8b9d6f" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <path d="M 120 50 Q 130 40 140 50 Q 145 55 150 50" stroke="#8b9d6f" stroke-width="1.5" fill="none" opacity="0.6"/>
+        </svg>
+    </section>
+
+    <!-- INVITACIÓN PRINCIPAL -->
+    <section class="invitation" id="invitation">
+        <div class="invitation__content">
+            <p class="invitation__text">
+                Con gozo en el corazón te invitamos a celebrar<br>
+                con nosotros el inicio<br>
+                de nuestra familia. Decimos SÍ delante de Dios y de ustedes.
+            </p>
+            
+            <div class="invitation__details">
+                <div class="invitation__detail">
+                    <h3 class="invitation__label">CEREMONIA</h3>
+                    <p class="invitation__value">Religiosa</p>
+                </div>
+                <div class="invitation__divider-vertical"></div>
+                <div class="invitation__detail">
+                    <h3 class="invitation__label">HORA</h3>
+                    <p class="invitation__value">3:30 pm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUENTA REGRESIVA -->
+    <section class="countdown" id="countdown">
+        <p class="countdown__label">Faltan:</p>
+        
+        <div class="countdown__timer">
+            <div class="countdown__box">
+                <span class="countdown__number" id="days">0</span>
+                <span class="countdown__unit">DÍAS</span>
+            </div>
+            <div class="countdown__box">
+                <span class="countdown__number" id="hours">0</span>
+                <span class="countdown__unit">HORAS</span>
+            </div>
+            <div class="countdown__box">
+                <span class="countdown__number" id="minutes">0</span>
+                <span class="countdown__unit">MINUTOS</span>
+            </div>
+            <div class="countdown__box">
+                <span class="countdown__number" id="seconds">0</span>
+                <span class="countdown__unit">SEGUNDOS</span>
+            </div>
+        </div>
+        
+        <p class="countdown__message" id="countdownMessage" style="display: none;">
+            ¡Hoy celebramos nuestro sí!
+        </p>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="location" id="location">
+        <div class="location__content">
+            <h2 class="location__title">LUGAR</h2>
+            
+            <div class="location__details">
+                <h3 class="location__name">CHALET 10</h3>
+                <p class="location__address">
+                    Km 26.5 circunvalación carretera Antigua hacia Amatitlán
+                </p>
+            </div>
+            
+            <a href="https://maps.app.goo.gl/vjiD88y53dpqrQWGA?g_st=awb" target="_blank" class="location__btn">
+                <svg class="location__icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"/>
+                </svg>
+                <span>Haz click<br>para saber la ubicación</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- REGALOS -->
+    <section class="gifts" id="gifts">
+        <div class="gifts__content">
+            <h2 class="gifts__title">REGALOS</h2>
+            
+            <p class="gifts__text">
+                Tu presencia es nuestro mejor regalo. Dios escribió<br>
+                esta historia y queremos que estés en el primer<br>
+                capítulo.
+            </p>
+            
+            <p class="gifts__verse">Romanos 12:15</p>
+            
+            <p class="gifts__message">
+                Si desean bendecir nuestro hogar habrá una mesa de<br>
+                regalos.
+            </p>
+        </div>
+        
+        <svg class="gifts__decoration gifts__decoration--top-left" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 30 80 Q 35 70 40 80 Q 42 85 45 80" stroke="#8b9d6f" stroke-width="1.5" fill="none" opacity="0.5"/>
+        </svg>
+        <svg class="gifts__decoration gifts__decoration--bottom-right" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 80 30 Q 90 35 80 45 Q 75 50 80 55" stroke="#8b9d6f" stroke-width="1.5" fill="none" opacity="0.5"/>
+        </svg>
+    </section>
+
+    <!-- CONFIRMACIÓN -->
+    <section class="confirmation" id="confirmation">
+        <div class="confirmation__content">
+            <h2 class="confirmation__title">CONFIRMA TU ASISTENCIA<br>AQUI</h2>
+            
+            <button class="confirmation__btn" id="confirmationBtn" data-confirmation-link="">
+                <svg class="confirmation__icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 13c.552 0 1 .448 1 1v3c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1v-3c0-.552.448-1 1-1h3zm10-10c.552 0 1 .448 1 1v3c0 .552-.448 1-1 1h-3c-.552 0-1-.448-1-1V4c0-.552.448-1 1-1h3zm-5-2c1.104 0 2 .896 2 2v2c0 1.104-.896 2-2 2s-2-.896-2-2V3c0-1.104.896-2 2-2zm0 10c1.104 0 2 .896 2 2v2c0 1.104-.896 2-2 2s-2-.896-2-2v-2c0-1.104.896-2 2-2z"/>
+                </svg>
+                <span>Confirmar Asistencia</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- GALERÍA FOTOGRÁFICA -->
+    <section class="gallery" id="gallery">
+        <!-- Foto 1: Fundamento -->
+        <div class="gallery__item">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop" alt="Fundamento" class="gallery__image">
+            <div class="gallery__overlay"></div>
+            <div class="gallery__text">
+                <h3 class="gallery__title">Nuestro amor tiene fundamento</h3>
+                <p class="gallery__verse">(Mateo 7:24-25)</p>
+            </div>
+        </div>
+
+        <!-- Foto 2: Hogar -->
+        <div class="gallery__item">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop" alt="Hogar" class="gallery__image">
+            <div class="gallery__overlay"></div>
+            <div class="gallery__text">
+                <h3 class="gallery__title">Un hogar cálido</h3>
+                <p class="gallery__subtitle">Donde el Espíritu Santo quiere habitar.</p>
+            </div>
+        </div>
+
+        <!-- Foto 3: Caminar Juntos -->
+        <div class="gallery__item">
+            <img src="https://images.unsplash.com/photo-1606216174052-a76f5fbb60a9?w=800&h=1000&fit=crop" alt="Caminar Juntos" class="gallery__image">
+            <div class="gallery__overlay"></div>
+            <div class="gallery__text">
+                <h3 class="gallery__title">Caminar Juntos</h3>
+                <p class="gallery__subtitle">En el ministerio es:<br>Misma visión + cargas compartidas +<br>Dones complementarios +<br>Corazones que se cubren.</p>
+            </div>
+        </div>
+
+        <!-- Foto 4: Cordón de 3 dobleces -->
+        <div class="gallery__item gallery__item--final">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=1000&fit=crop" alt="Cordón de 3 dobleces" class="gallery__image">
+            <div class="gallery__overlay"></div>
+            <div class="gallery__text">
+                <h3 class="gallery__title">Cordón de 3 dobleces.</h3>
+                <p class="gallery__verse">(Eclesiastés 4:9-12)</p>
+                <p class="gallery__message">Hoy entrelazamos nuestras vidas y<br>ponemos a Dios en el centro. Que este<br>cordón nos recuerde que solos somos<br>débiles, pero con Dios somos fuertes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="closing" id="closing">
+        <p class="closing__text">Con amor,<br><span class="closing__names">Byron & Sandra</span></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
