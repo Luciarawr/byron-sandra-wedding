@@ -1,0 +1,844 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #f5f1ed;
+    color: #3d3d3d;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   PORTADA / HERO
+   ============================================= */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoom 0.8s ease-out;
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero__names {
+    margin-bottom: 3rem;
+}
+
+.hero__name-groom {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.hero__divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.hero__ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.hero__name-bride {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+}
+
+.hero__date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0;
+    letter-spacing: 0.1em;
+}
+
+.hero__music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+
+.music-btn {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.music-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.music-btn__icon {
+    width: 24px;
+    height: 24px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+}
+
+.hero__music-hint {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
+/* =============================================
+   INTRODUCCIÓN
+   ============================================= */
+
+.introduction {
+    position: relative;
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f1ed 100%);
+    padding: 5rem 2rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.introduction__content {
+    max-width: 700px;
+    text-align: center;
+}
+
+.introduction__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #4a4a4a;
+}
+
+.introduction__parents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.introduction__parents-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.introduction__parent-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3d3d3d;
+    letter-spacing: 0.05em;
+}
+
+.introduction__decoration {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.4;
+}
+
+/* =============================================
+   INVITACIÓN PRINCIPAL
+   ============================================= */
+
+.invitation {
+    background: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.invitation__content {
+    max-width: 600px;
+}
+
+.invitation__text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.invitation__details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.invitation__detail {
+    flex: 1;
+}
+
+.invitation__label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #8b9d6f;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.invitation__value {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #3d3d3d;
+}
+
+.invitation__divider-vertical {
+    width: 1px;
+    height: 50px;
+    background: #d4c4b0;
+}
+
+/* =============================================
+   CUENTA REGRESIVA
+   ============================================= */
+
+.countdown {
+    background: linear-gradient(135deg, #f5f1ed 0%, #faf8f5 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.countdown__label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #4a4a4a;
+    letter-spacing: 0.05em;
+}
+
+.countdown__timer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+@media (max-width: 600px) {
+    .countdown__timer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+.countdown__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e0d5c7;
+    border-radius: 8px;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.countdown__number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8b9d6f;
+}
+
+.countdown__unit {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: #8b9d6f;
+    font-weight: 600;
+}
+
+.countdown__message {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #8b9d6f;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* =============================================
+   UBICACIÓN
+   ============================================= */
+
+.location {
+    background: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.location__content {
+    max-width: 500px;
+}
+
+.location__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+    color: #3d3d3d;
+}
+
+.location__details {
+    margin-bottom: 2rem;
+}
+
+.location__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #3d3d3d;
+}
+
+.location__address {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin-bottom: 2rem;
+}
+
+.location__btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.5rem 2rem;
+    background: white;
+    border: 2px solid #8b9d6f;
+    border-radius: 50px;
+    color: #8b9d6f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.location__btn:hover {
+    background: #8b9d6f;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(139, 157, 111, 0.2);
+}
+
+.location__icon {
+    width: 28px;
+    height: 28px;
+}
+
+/* =============================================
+   REGALOS
+   ============================================= */
+
+.gifts {
+    position: relative;
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f1ed 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.gifts__content {
+    max-width: 600px;
+}
+
+.gifts__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+    color: #3d3d3d;
+}
+
+.gifts__text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #4a4a4a;
+}
+
+.gifts__verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8b9d6f;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.gifts__message {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #5a5a5a;
+}
+
+.gifts__decoration {
+    position: absolute;
+    opacity: 0.3;
+}
+
+.gifts__decoration--top-left {
+    top: 30px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.gifts__decoration--bottom-right {
+    bottom: 30px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+/* =============================================
+   CONFIRMACIÓN
+   ============================================= */
+
+.confirmation {
+    background: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.confirmation__content {
+    max-width: 500px;
+}
+
+.confirmation__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+    color: #3d3d3d;
+}
+
+.confirmation__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem;
+    background: #8b9d6f;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+}
+
+.confirmation__btn:hover {
+    background: #7a8a5f;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(139, 157, 111, 0.3);
+}
+
+.confirmation__icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* =============================================
+   GALERÍA FOTOGRÁFICA
+   ============================================= */
+
+.gallery {
+    background: #f5f1ed;
+}
+
+.gallery__item {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.gallery__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: imageZoom 0.8s ease-out;
+}
+
+@keyframes imageZoom {
+    from {
+        transform: scale(1.02);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.gallery__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.gallery__text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    max-width: 500px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.gallery__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.gallery__subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.gallery__verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}
+
+.gallery__message {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-top: 1rem;
+}
+
+.gallery__item--final .gallery__text {
+    max-width: 550px;
+}
+
+/* =============================================
+   CIERRE
+   ============================================= */
+
+.closing {
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f1ed 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    min-height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.closing__text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #3d3d3d;
+    letter-spacing: 0.05em;
+}
+
+.closing__names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 768px) {
+    .hero__name-groom {
+        font-size: 2rem;
+    }
+
+    .hero__name-bride {
+        font-size: 1.5rem;
+    }
+
+    .hero__date {
+        font-size: 1.4rem;
+    }
+
+    .introduction__parents {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .invitation__details {
+        gap: 2rem;
+    }
+
+    .invitation__text {
+        font-size: 1.1rem;
+    }
+
+    .gallery__title {
+        font-size: 1.5rem;
+    }
+
+    .gallery__subtitle {
+        font-size: 0.9rem;
+    }
+
+    .countdown__timer {
+        gap: 1rem;
+    }
+
+    .countdown__number {
+        font-size: 2rem;
+    }
+
+    .location__title,
+    .gifts__title,
+    .confirmation__title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__name-groom {
+        font-size: 1.5rem;
+    }
+
+    .hero__name-bride {
+        font-size: 1.2rem;
+    }
+
+    .hero__date {
+        font-size: 1.1rem;
+    }
+
+    .hero__ampersand {
+        font-size: 1.5rem;
+    }
+
+    .introduction__text {
+        font-size: 0.95rem;
+    }
+
+    .invitation__text {
+        font-size: 0.95rem;
+    }
+
+    .invitation__label {
+        font-size: 0.75rem;
+    }
+
+    .invitation__value {
+        font-size: 1.1rem;
+    }
+
+    .countdown__timer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .countdown__box {
+        padding: 1rem;
+    }
+
+    .countdown__number {
+        font-size: 1.8rem;
+    }
+
+    .gallery__title {
+        font-size: 1.3rem;
+    }
+
+    .gallery__subtitle,
+    .gallery__message {
+        font-size: 0.85rem;
+    }
+
+    .closing__text {
+        font-size: 1.2rem;
+    }
+
+    .closing__names {
+        font-size: 1.5rem;
+    }
+
+    .location__btn,
+    .confirmation__btn {
+        padding: 1rem 1.8rem;
+        font-size: 0.9rem;
+    }
+}
