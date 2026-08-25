@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="clock-styles.css">
+</head>
+<body>
+    <div class="clock-container">
+        <h1 class="main-title">🌍 World Clock</h1>
+        
+        <!-- Clock Display Grid -->
+        <div class="clocks-grid">
+            <!-- Clock 1: New York (EST) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">New York</h2>
+                    <p class="timezone-code">EST/EDT</p>
+                </div>
+                <div class="digital-clock" id="clock-ny">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-ny">Loading...</div>
+            </div>
+
+            <!-- Clock 2: London (GMT) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">London</h2>
+                    <p class="timezone-code">GMT/BST</p>
+                </div>
+                <div class="digital-clock" id="clock-london">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-london">Loading...</div>
+            </div>
+
+            <!-- Clock 3: Paris (CET) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">Paris</h2>
+                    <p class="timezone-code">CET/CEST</p>
+                </div>
+                <div class="digital-clock" id="clock-paris">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-paris">Loading...</div>
+            </div>
+
+            <!-- Clock 4: Dubai (GST) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">Dubai</h2>
+                    <p class="timezone-code">GST</p>
+                </div>
+                <div class="digital-clock" id="clock-dubai">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-dubai">Loading...</div>
+            </div>
+
+            <!-- Clock 5: Tokyo (JST) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">Tokyo</h2>
+                    <p class="timezone-code">JST</p>
+                </div>
+                <div class="digital-clock" id="clock-tokyo">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-tokyo">Loading...</div>
+            </div>
+
+            <!-- Clock 6: Sydney (AEDT) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">Sydney</h2>
+                    <p class="timezone-code">AEDT/AEST</p>
+                </div>
+                <div class="digital-clock" id="clock-sydney">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-sydney">Loading...</div>
+            </div>
+
+            <!-- Clock 7: São Paulo (BRT) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">São Paulo</h2>
+                    <p class="timezone-code">BRT/BRST</p>
+                </div>
+                <div class="digital-clock" id="clock-sao-paulo">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-sao-paulo">Loading...</div>
+            </div>
+
+            <!-- Clock 8: Los Angeles (PST) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">Los Angeles</h2>
+                    <p class="timezone-code">PST/PDT</p>
+                </div>
+                <div class="digital-clock" id="clock-la">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-la">Loading...</div>
+            </div>
+
+            <!-- Clock 9: Hong Kong (HKT) -->
+            <div class="clock-card">
+                <div class="clock-header">
+                    <h2 class="timezone-name">Hong Kong</h2>
+                    <p class="timezone-code">HKT</p>
+                </div>
+                <div class="digital-clock" id="clock-hongkong">
+                    <span class="time">00:00:00</span>
+                </div>
+                <div class="date-display" id="date-hongkong">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Control Section -->
+        <div class="controls-section">
+            <button class="btn btn-primary" id="add-timezone-btn">+ Add Timezone</button>
+            <button class="btn btn-secondary" id="toggle-12-24">Toggle 12/24 Hour</button>
+            <button class="btn btn-secondary" id="reset-btn">Reset</button>
+        </div>
+
+        <!-- Add Custom Timezone Modal -->
+        <div class="modal" id="timezone-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add Custom Timezone</h2>
+                <div class="form-group">
+                    <label for="timezone-city">City Name:</label>
+                    <input type="text" id="timezone-city" placeholder="e.g., Istanbul">
+                </div>
+                <div class="form-group">
+                    <label for="timezone-select">Select Timezone:</label>
+                    <select id="timezone-select">
+                        <option value="America/Anchorage">Alaska (AKST/AKDT)</option>
+                        <option value="Europe/Istanbul">Istanbul (EET)</option>
+                        <option value="Asia/Bangkok">Bangkok (ICT)</option>
+                        <option value="Asia/Singapore">Singapore (SGT)</option>
+                        <option value="Pacific/Auckland">Auckland (NZDT/NZST)</option>
+                        <option value="America/Mexico_City">Mexico City (CST/CDT)</option>
+                        <option value="Asia/Jakarta">Jakarta (WIB)</option>
+                        <option value="Asia/Manila">Manila (PHT)</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" id="add-timezone-confirm">Add</button>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <p class="info-text">🌐 All times are automatically synced with your system clock</p>
+            <p class="info-text">⏰ Updates every second for real-time accuracy</p>
+        </div>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
